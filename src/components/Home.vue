@@ -7,7 +7,9 @@
 
       <VRow class="d-flex align-center justify-center">
         <VCol cols="auto">
-          <MyButton color="primary" size="small" />
+          <MyButton color="primary" size="small" text="Przelicz talie">
+            <template #append>dodatkowa treść</template>
+          </MyButton>
           <DeckInfo :deck=deck />
         </VCol>
       </VRow>

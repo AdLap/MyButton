@@ -1,6 +1,6 @@
 <template>
   <VBtn :color="color" :size="size">
-    Przelicz talie
+    {{ text }}
   </VBtn>
 </template>
 
@@ -8,5 +8,6 @@
 defineProps<{
   color: string
   size: string
+  text: string
 }>()
 </script>
