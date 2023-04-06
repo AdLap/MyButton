@@ -57,7 +57,7 @@ const deckCount = (cards: string[], baseDeck: string[]): void => {
 
   // check the number of complete collections
   for (let val of Object.values(sortedCards)) {
-    if (val > 0) {
+    if (deckNumber === 0 && val > 0) {
       deckNumber = val
     }
     if (val <= deckNumber && val > 0) {
