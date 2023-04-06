@@ -7,7 +7,8 @@
 
       <VRow class="d-flex align-center justify-center">
         <VCol cols="auto">
-          <MyButton color="primary" size="small" text="Przelicz talie" @click="deckCount(randomCards, baseDeck)">
+          <MyButton :color="'primary'" :size="'small'" @click="deckCount(randomCards, baseDeck)">
+            Przelicz talie
             <template #append>dodatkowa treść</template>
           </MyButton>
           <MyButton color="secondary" size="small" text="Wylosuj karty" @click="shuffleCards(baseDeck)" />
