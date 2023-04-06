@@ -7,10 +7,10 @@
 
       <VRow class="d-flex align-center justify-center">
         <VCol cols="auto">
-          <MyButton color="primary" size="small" text="Przelicz talie" @click="deckCount(baseCards, baseCards)">
+          <MyButton color="primary" size="small" text="Przelicz talie" @click="deckCount(randomCards, baseCards)">
             <template #append>dodatkowa treść</template>
           </MyButton>
-          <MyButton color="secondary" size="small" text="Wylosuj karty" @click="shuffle" />
+          <MyButton color="secondary" size="small" text="Wylosuj karty" @click="shuffle(baseCards)" />
           <DeckInfo :deck=deck />
         </VCol>
       </VRow>
@@ -26,16 +26,31 @@ import MyButton from '@/components/MyButton.vue'
 import DeckInfo from '@/components/DeckInfo.vue'
 
 const deck = ref<number>(0)
+const randomCards = ref<string[]>([])
 
-const shuffle = (): string[] => {
+/**
+ * 
+ * @param baseCards deck schema
+ */
+const shuffle = (baseCards: string[]): void => {
   const cards: string[] = []
-  const totalCards: number = randomNumber(20, 50)
+  const totalCards: number = randomNumber(50, 200)
 
-  return cards
+  for (let i = 0; i < totalCards; i++) {
+    let index = randomNumber(0, baseCards.length - 1)
+    cards.push(
+      baseCards[index]
+    )
+  }
+
+  randomCards.value = [...cards]
 }
 
-const cards = ref<string[]>([])
-
+/**
+ * 
+ * @param cards cards to sort
+ * @param baseCards deck schema
+ */
 const deckCount = (cards: string[], baseCards: string[]): void => {
   let deckNumber = 0
   const sortedCards: Cards = {}
