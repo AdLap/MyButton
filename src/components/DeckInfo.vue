@@ -4,7 +4,7 @@
       Liczba pełnych tali
     </VCardTitle>
     <VCardText>
-      Z podanego zbioru można skompletować {{ deck }}
+      Z wylosowanego zbioru można skompletować {{ deck }}
       {{ deck === 1
         ? 'talię'
         : deck < 5 && deck !== 0 ? 'talie' : 'talii ' }} kart </VCardText>

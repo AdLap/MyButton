@@ -11,24 +11,32 @@
             Przelicz talie
             <template #append>dodatkowa treść</template>
           </MyButton>
-          <MyButton color="secondary" size="small" text="Wylosuj karty" @click="shuffleCards(baseDeck)" />
+          <MyButton color="secondary" size="small" @click="shuffleCards(baseDeck)">
+            Wylosuj karty
+          </MyButton>
           <DeckInfo :deck=deck />
         </VCol>
       </VRow>
+
+      <RandomCards :cards="sorted"/>
     </VResponsive>
   </VContainer>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { baseDeck, sortCards, shuffle } from '@/helpers/helpers.js'
 import MyButton from '@/components/MyButton.vue'
 import DeckInfo from '@/components/DeckInfo.vue'
+import RandomCards from '@/components/RandomCards.vue'
 
 const deck = ref<number>(0)
 const randomCards = ref<string[]>([])
+const sorted = computed(() => sortCards(randomCards.value))
+
 
 const shuffleCards = (baseDeck: string[]): void => {
+  randomCards.value = []
   const newCards = shuffle(baseDeck)
   randomCards.value = [...newCards]
 }
@@ -39,7 +47,7 @@ const shuffleCards = (baseDeck: string[]): void => {
  */
 const deckCount = (cards: string[], baseDeck: string[]): void => {
   let deckNumber = 0
-  const sortedCards = sortCards(cards)
+  const sortedCards = sorted.value
 
   // checking that at least one collection is complete
   if (cards === undefined || Object.keys(cards).length < baseDeck.length) {
