@@ -1,6 +1,8 @@
 <template>
   <VBtn :color="color" :size="size">
-    {{ text }}
+    <slot name="prepend" />
+    <slot />
+    <slot name="append" />
   </VBtn>
 </template>
 
@@ -8,6 +10,5 @@
 defineProps<{
   color: string
   size: string
-  text: string
 }>()
 </script>
