@@ -1,5 +1,6 @@
 <template>
-  <VBtn :color="color" :size="size">
+  <VBtn v-bind="config">
+    <slot name="loader" />
     <slot name="prepend" />
     <slot />
     <slot name="append" />
@@ -7,8 +8,9 @@
 </template>
 
 <script setup lang="ts">
+import type { Button } from '@/type/types'
+
 defineProps<{
-  color: string
-  size: string
+  config: Button
 }>()
 </script>

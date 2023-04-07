@@ -7,11 +7,11 @@
 
       <VRow class="d-flex align-center justify-center">
         <VCol cols="auto">
-          <MyButton :color="'primary'" :size="'small'" @click="deckCount(randomCards, baseDeck)">
+          <MyButton :config="{color: 'primary', size: 'small'}" @click="deckCount(randomCards, baseDeck)">
             Przelicz talie
             <template #append>dodatkowa treść</template>
           </MyButton>
-          <MyButton color="secondary" size="small" @click="shuffleCards(baseDeck)">
+          <MyButton :config="{color: 'secondary', size: 'small'}" @click="shuffleCards(baseDeck)">
             Wylosuj karty
           </MyButton>
           <DeckInfo :deck=deck />
@@ -33,7 +33,6 @@ import RandomCards from '@/components/RandomCards.vue'
 const deck = ref<number>(0)
 const randomCards = ref<string[]>([])
 const sorted = computed(() => sortCards(randomCards.value))
-
 
 const shuffleCards = (baseDeck: string[]): void => {
   randomCards.value = []
