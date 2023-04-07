@@ -1,20 +1,20 @@
 <template>
   <VContainer class="fill-height">
-    <VResponsive class="d-flex align-center text-center fill-height">
+    <VResponsive class="d-flex align-start text-center fill-height">
       <VImg contain height="300" src="@/assets/logo.svg" />
 
-      <h1 class="text-h2 font-weight-bold">Licznik talii kart</h1>
+      <h1 class="text-h2 font-weight-bold my-6">Licznik talii kart</h1>
 
       <VRow class="d-flex align-center justify-center">
         <VCol cols="auto">
           <MyButton :config="{color: 'primary', size: 'small'}" @click="deckCount(randomCards, baseDeck)">
             Przelicz talie
-            <template #append>dodatkowa treść</template>
+            <template #append>(jeśli masz co liczyć &#128521;)</template>
           </MyButton>
           <MyButton :config="{color: 'secondary', size: 'small'}" @click="shuffleCards(baseDeck)">
             Wylosuj karty
           </MyButton>
-          <DeckInfo :deck=deck />
+          <DeckInfo :deck=deck class="my-10" />
         </VCol>
       </VRow>
 
