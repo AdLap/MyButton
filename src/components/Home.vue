@@ -7,18 +7,18 @@
 
       <VRow class="d-flex align-center justify-center">
         <VCol cols="auto">
-          <MyButton :config="{color: 'primary', size: 'small'}" @click="deckCount(randomCards, baseDeck)">
+          <MyButton :config="{ color: 'primary', size: 'small' }" @click="deckCount(randomCards, baseDeck)">
             Przelicz talie
             <template #append>(jeśli masz co liczyć &#128521;)</template>
           </MyButton>
-          <MyButton :config="{color: 'secondary', size: 'small'}" @click="shuffleCards(baseDeck)">
+          <MyButton :config="{ color: 'secondary', size: 'small' }" @click="shuffleCards(baseDeck)">
             Wylosuj karty
           </MyButton>
           <DeckInfo :deck=deck class="my-10" />
         </VCol>
       </VRow>
 
-      <RandomCards :cards="sorted"/>
+      <RandomCards :cards="sorted" />
     </VResponsive>
   </VContainer>
 </template>
