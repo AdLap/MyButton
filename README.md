@@ -1,4 +1,4 @@
-# Install locally
+## Install locally
 
 ```
 # yarn
