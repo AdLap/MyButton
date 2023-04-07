@@ -45,12 +45,12 @@ const shuffleCards = (baseDeck: string[]): void => {
  * @param baseDeck deck schema
  */
 const deckCount = (cards: string[], baseDeck: string[]): void => {
+  deck.value = 0
   let deckNumber = 0
   const sortedCards = sorted.value
 
   // checking that at least one collection is complete
   if (cards === undefined || Object.keys(cards).length < baseDeck.length) {
-    deck.value = 0
     return
   }
 
