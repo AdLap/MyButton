@@ -1,5 +1,5 @@
 <template>
-    <VCard>
+  <VCard>
     <VCardTitle>
       Liczba pełnych tali
     </VCardTitle>

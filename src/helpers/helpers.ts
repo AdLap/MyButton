@@ -7,9 +7,18 @@ export const baseDeck: string[] = [
   "APIK", "AKIE", "ATRE", "AKAR",
 ];
 
+/**
+ * @param min 
+ * @param max 
+ * @returns random number
+ */
 export const randomNumber = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1) + min)
 
+  /**
+   * @param cards cards collection
+   * @returns Object with sorted collection
+   */
 export const sortCards = (cards: string[]): Cards => {
   const sortedCards: Cards = {}
 
@@ -30,6 +39,7 @@ export const sortCards = (cards: string[]): Cards => {
 
 /**
  * @param baseDeck deck schema
+ * @returns card collection
  */
 export const shuffle = (baseDeck: string[]): string[] => {
   const cards: string[] = []
